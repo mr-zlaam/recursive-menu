@@ -1,0 +1,6 @@
+./src/components/ui/*
+/src/components/ui/*
+src/components/ui/*
+./public
+/public
+public/

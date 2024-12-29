@@ -1,0 +1,329 @@
+@keyframes fillFromCenter {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 1;
+  }
+}
+
+.hover-fill-center::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f97316;
+  /* Use Tailwind's primary color */
+  border-radius: 9999px;
+  /* Fully rounded */
+  transform: scale(0);
+  /* Start from center */
+  opacity: 1;
+  transition: transform 0.8s ease-out;
+  z-index: 0;
+}
+
+.hover-fill-center:hover::before {
+  transform: scale(2);
+  /* Expand outwards */
+}
+
+.hover-fill-center span {
+  position: relative;
+  z-index: 10;
+  /* Ensure text stays on top */
+}
+
+/* Preloadercss   */
+
+/*===========================
+<-- Consen Loader Css -->
+=============================*/
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.8s 1s ease;
+  z-index: 999;
+}
+
+.loader {
+  position: relative;
+  display: block;
+  z-index: 201;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  border-radius: 50%;
+  transition: all 1s 1s ease;
+  border: 3px solid transparent;
+  border-top-color: #9a241c;
+  -webkit-animation: spin 1.5s linear infinite;
+  -moz-animation: spin 1.5s linear infinite;
+  -o-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+.loader:before {
+  position: absolute;
+  content: "";
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-left-color: #ff3c00;
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  -o-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.loader:after {
+  position: absolute;
+  content: "";
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-right-color: #fff;
+  -webkit-animation: spin 2.5s linear infinite;
+  -moz-animation: spin 2.5s linear infinite;
+  -o-animation: spin 2.5s linear infinite;
+  animation: spin 2.5s linear infinite;
+}
+
+/*/ Here comes the Magic /*/
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.loader-wrapper .loder-section {
+  position: fixed;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #111;
+  z-index: 2;
+}
+
+.loader-wrapper .loder-section.left-section {
+  left: 0;
+  transition: 1s 1.4s ease;
+}
+
+.loader-wrapper .loder-section.right-section {
+  right: 0;
+  transition: 1s 1.4s ease;
+}
+
+/*/ When page loaded /*/
+.loaded .loder-section.left-section {
+  left: -100%;
+}
+
+.loaded .loder-section.right-section {
+  right: -100%;
+}
+
+.loaded .loader-wrapper {
+  visibility: hidden;
+}
+
+.loaded .loader {
+  top: -100%;
+  opacity: 0;
+}
+
+/* a.logo_img img {
+  width: 90px !important;
+} */
+
+/*
+    Background Image
+*/
+.landing-bg {
+  background: url("https://i.postimg.cc/g0TsfPDN/hero-bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 89vh;
+  padding-top: 10rem;
+  /* Allows for absolute positioning of child elements if needed */
+}
+
+/* Apply global styling to all elements */
+* {
+  scrollbar-width: none;
+  /* Firefox */
+  scrollbar-color: #28282b transparent;
+  /* Thumb and track colors */
+  scroll-behavior: smooth;
+  /* Smooth scrolling */
+  scroll-timeline-name: zlaam;
+}
+
+/* Webkit-based browsers (Chrome, Safari, newer Edge) */
+*::-webkit-scrollbar {
+  width: 8px;
+  /* Width of the scrollbar */
+  height: 8px;
+  /* Height of horizontal scrollbar */
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #28282b, #565656);
+  /* Gradient color for thumb */
+  border-radius: 8px;
+  /* Rounded corners */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #565656;
+  /* Hover effect for thumb */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  /* Track background */
+  border-radius: 8px;
+  /* Rounded corners for track */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  /* Optional shadow */
+}
+
+/* Microsoft Edge and Internet Explorer */
+*::-ms-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-ms-scrollbar-thumb {
+  background-color: #28282b;
+  border-radius: 8px;
+}
+
+/* Media query for responsiveness (small devices) */
+@media screen and (max-width: 768px) {
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #3a3a3d;
+  }
+}
+
+/* Prevent image and anchor selection for better UX */
+* > img,
+a {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Hide Grammarly extension bubble */
+grammarly-extension {
+  display: none !important;
+}
+
+/* Section 3 */
+
+.hero3-bg {
+  position: relative;
+  background: url("https://i.postimg.cc/9fw4sMLX/services-bg-f6117197.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  background-color: #000025ef;
+}
+
+/* Pattern for hero7 section in ladingpage */
+.pattern-hero-7 {
+  width: 100%;
+  height: 100%;
+  background: url("https://i.postimg.cc/3RvMCPFN/image.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.pattern-hero-9 {
+  width: 100%;
+  height: 100%;
+  background: url("https://i.postimg.cc/8CLHL6y2/image.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.footer-bg {
+  width: 100%;
+  height: 100%;
+  background: url("https://i.postimg.cc/mgJ2bwQH/image.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
